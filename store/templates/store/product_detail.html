@@ -10,7 +10,7 @@
     <p><strong>In Stock:</strong> {{ product.stock }} items available</p>
     <footer>
         <a href="{% url 'product_list' %}" role="button" class="secondary">Back to Products</a>
-        <a href="#" role="button">Add to Cart</a>
+        <a href="{% url 'add_to_cart' product.id %}" role="button">Add to Cart</a>
     </footer>
 </article>
 {% endblock %}

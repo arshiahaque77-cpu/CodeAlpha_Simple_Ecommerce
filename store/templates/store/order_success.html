@@ -1,0 +1,9 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<article>
+    <header><h2>Order Successful! 🎉</h2></header>
+    <p>Thank you for your purchase, {{ user.username }}. Your order ID is <strong>#{{ order.id }}</strong>.</p>
+    <p>Total Paid: <strong>${{ order.total_price }}</strong></p>
+    <footer><a href="{% url 'product_list' %}" role="button">Continue Shopping</a></footer>
+</article>
+{% endblock %}

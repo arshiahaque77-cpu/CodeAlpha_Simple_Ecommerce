@@ -14,11 +14,25 @@
             </ul>
             <ul>
                 <li><a href="{% url 'product_list' %}">Home</a></li>
-                <li><a href="/admin/">Admin Panel</a></li>
+                <li><a href="{% url 'cart_detail' %}">Cart</a></li>
+                
+                {% if user.is_authenticated %}
+                    <li>
+                        <form action="{% url 'logout' %}" method="post" style="display: inline; margin: 0;">
+                            {% csrf_token %}
+                            <button type="submit" class="outline secondary" style="padding: 4px 10px; font-size: 0.9rem;">Logout ({{ user.username }})</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}" role="button">Register</a></li>
+                {% endif %}
+                
+                <li><a href="/admin/">Admin</a></li>
             </ul>
         </nav>
     </header>
-
+    
     <main class="container">
         {% block content %}
         {% endblock %}
