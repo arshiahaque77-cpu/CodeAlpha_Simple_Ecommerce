@@ -1,0 +1,16 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+<article>
+    <header>
+        <h1>{{ product.name }}</h1>
+    </header>
+    <p>{{ product.description }}</p>
+    <p><strong>Price:</strong> ${{ product.price }}</p>
+    <p><strong>In Stock:</strong> {{ product.stock }} items available</p>
+    <footer>
+        <a href="{% url 'product_list' %}" role="button" class="secondary">Back to Products</a>
+        <a href="#" role="button">Add to Cart</a>
+    </footer>
+</article>
+{% endblock %}

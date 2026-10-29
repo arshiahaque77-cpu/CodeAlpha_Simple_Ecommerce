@@ -1,0 +1,21 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+<h2>Our Products</h2>
+<div class="grid">
+    {% for product in products %}
+        <article>
+            <header>
+                <h3>{{ product.name }}</h3>
+            </header>
+            <p>{{ product.description|truncatewords:15 }}</p>
+            <footer>
+                <strong>${{ product.price }}</strong>
+                <a href="{% url 'product_detail' product.id %}" role="button" class="outline">View Details</a>
+            </footer>
+        </article>
+    {% empty %}
+        <p>No products available yet. Add some via the <a href="/admin/">Django Admin</a>!</p>
+    {% endfor %}
+</div>
+{% endblock %}
